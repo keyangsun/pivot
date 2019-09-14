@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
+import Nav from './nav';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        Hello again! Preston 
       </header>
+      <Nav/>
+      
     </div>
   );
 }
