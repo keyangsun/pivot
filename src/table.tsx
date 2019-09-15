@@ -2,27 +2,41 @@ import React, { ReactElement } from 'react';
 import Entry from './entry';
 
 interface State {
-    value: string;
+    values: string[];
 }
 
 class Table extends React.Component<any, State> {
     state = {
-        value: 'default'
+        values: ['one', 'two', 'three']
     }
 
-    setValue = (value: string): void => {
-        console.log(value);
-        this.setState({ value });
+    setValue = (value: string, key: number): void => {
+        let { values } = this.state;
+        values[key] = value;
+        let newArray = Array.from(values)
+        this.setState({ values: newArray });
     }
 
     render(): ReactElement {
-        const { value } = this.state;
+        const { values } = this.state;
         // you can return a table with many entry react elements mapped into it
         return(
-            <Entry 
-                value={value}
-                setValue={this.setValue}
-            />
+            <table>
+                <tr>
+                    {values.map((val, i) => {
+                        return(
+                            <td style={{width: '40px'}}>
+                                <Entry 
+                                    value={val}
+                                    key={i}
+                                    index={i}
+                                    setValue={this.setValue}
+                                />
+                            </td>
+                        );
+                    })}
+                </tr>
+            </table>
         )
     }
 }

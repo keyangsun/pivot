@@ -2,8 +2,9 @@ import React, { ReactElement } from 'react';
 import './entry.css'
 
 interface Props {
+    index: number;
     value: string; 
-    setValue: (value: string) => void;
+    setValue: (value: string, key: number) => void;
 }
 
 interface State {
@@ -32,9 +33,9 @@ class Entry extends React.Component<Props, State> {
 
     submitValue = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
-        const { setValue } = this.props;
+        const { setValue, index } = this.props;
         const { candidateValue } = this.state;
-        setValue( candidateValue );
+        setValue( candidateValue, index );
         this.toggleEditable();
     }
 
