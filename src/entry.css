@@ -1,0 +1,12 @@
+.entry > p:hover{
+    cursor: pointer;
+}
+
+.entry > p:hover::after {
+    content: ' edit me'
+}
+
+.entry > form {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

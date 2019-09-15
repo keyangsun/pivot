@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import './entry.css'
 
 interface Props {
     value: string; 
@@ -41,9 +42,10 @@ class Entry extends React.Component<Props, State> {
         const { editable, candidateValue } = this.state; 
         const { value } = this.props;
         return editable ? (
-            <span>
+            <span className="entry">
                 <form onSubmit={this.submitValue}>
                     <input 
+                        autoFocus
                         onChange={this.changeValue} 
                         type="text"
                         value={candidateValue}
@@ -51,7 +53,7 @@ class Entry extends React.Component<Props, State> {
                 </form>
             </span>
         ) : (
-            <span onClick={this.toggleEditable}>
+            <span onClick={this.toggleEditable} className="entry">
                 <p>{value}</p>
             </span>
         )
