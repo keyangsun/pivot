@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import './pivot_list.css';
 import Dropdown from '../dropdown';
 import Figure from './figure';
+import InfoPanel from './info_panel';
 
 interface Props {
 
@@ -55,19 +56,7 @@ class PivotList extends React.Component<Props, State>  {
                         <button>+ icon</button>
                     </section>
                     <div className="right-drawer">
-                        <details>
-                            <summary>Data</summary>
-                            <div>
-                                <span>
-                                    <label htmlFor="label">Label:</label>
-                                    <input type="text" value="Label Name"/>
-                                </span>
-                                <span>
-                                    <label htmlFor="label">Label:</label>
-                                    <input type="text" value="Label Name" />
-                                </span>
-                            </div>
-                        </details>
+                        <InfoPanel title="Data" data={[{value: 'value', label: 'label', name: 'name'}, {value: 'value', label: 'label', name: 'name'}]}/>
                         <button>Right icon</button>
                     </div>
                 </main>
