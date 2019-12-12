@@ -3,6 +3,7 @@ import './pivot_list.css';
 import Dropdown from '../dropdown';
 import Figure from './figure';
 import InfoPanel from './info_panel';
+import DateRange from './date_range';
 
 interface Props {
 
@@ -38,12 +39,8 @@ class PivotList extends React.Component<Props, State>  {
                             <Dropdown label='Sort By' name="sort-by" options={options}/>
                         </div>
                         <div>
-                            <span>
-                                <h4>Date Range</h4>
-                            </span>
-                            <span>
-                                <h4>Date Range</h4>
-                            </span>
+                            <DateRange date={new Date()}/>
+                            <DateRange date={new Date()}/>
                         </div>
                         <button>Left icon</button>
                     </aside>

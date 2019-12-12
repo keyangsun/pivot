@@ -12,14 +12,14 @@ interface Option {
 }
 
 const Dropdown = (props: Props) => {
-    const { label } = props;
+    const { label, name } = props;
     const options  = props.options.map(option => <option value={option.value}>{option.name}</option>);
     
     return(
        
         <span>
-            <label htmlFor="group-by">Group By</label>
-            <select name="group-by" id="group-by">
+            <label htmlFor={name}>{label}</label>
+            <select name={name} id={name}>
                 {options}
             </select>
         </span>
