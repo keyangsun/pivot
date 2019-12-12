@@ -12,7 +12,7 @@ const DateRange = (props: Props) => {
     
     return(
         <span>
-            <h4>{date}</h4>
+            <h4>{date + ""}</h4>
         </span>
     )
 }
