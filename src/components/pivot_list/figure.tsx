@@ -13,7 +13,7 @@ const Figure = (props: Props) => {
 
     
     return(
-        <figure>
+        <figure className="photo-grid-item">
             <img src={src} alt={alt}/>
             <figcaption>{caption}</figcaption>
         </figure>

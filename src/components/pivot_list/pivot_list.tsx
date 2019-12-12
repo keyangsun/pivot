@@ -44,13 +44,16 @@ class PivotList extends React.Component<Props, State>  {
                         </div>
                         <button>Left icon</button>
                     </aside>
-                    <section className="photo-grid">
-                        <span>
-                          <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                        </span>
+                    <section className="center-content">
+                        <div className="photo-grid-wrapper">
+                            <span>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
+                            </span>
+                        </div>
                         <h3>Image Size</h3>
                         <button>- icon</button>
                         <button>+ icon</button>
+                        
                     </section>
                     <div className="right-drawer">
                         <InfoPanel title="Data" data={[{value: 'value', label: 'label', name: 'name'}, {value: 'value', label: 'label', name: 'name'}]}/>

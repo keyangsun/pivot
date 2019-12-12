@@ -1,8 +1,3 @@
-div, 
-span {
-    border: 1px solid blue;
-}
-
 .pivot-list {
     height: 100%;
     width: 100%;
@@ -16,8 +11,28 @@ main {
 
 .left-drawer {
     height: 100%;
+    width: 14em;
+    border-right: 1px solid grey;
 }
 
-.photo-grid {
+.center-content {
     height: 100%;
+    width: 100%;
 }
+
+.photo-grid-wrapper {
+    display: grid;
+}
+
+.photo-grid-item {
+    height: 10em;
+    width: 15em; 
+    background-color: #dddddd;
+}
+
+.right-drawer {
+    height: 100%;
+    width: 20em;
+    border-left: 1px solid grey;
+}
+
