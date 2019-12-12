@@ -46,9 +46,12 @@ class PivotList extends React.Component<Props, State>  {
                     </aside>
                     <section className="center-content">
                         <div className="photo-grid-wrapper">
-                            <span>
                             <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            </span>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
+                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
                         </div>
                         <h3>Image Size</h3>
                         <button>- icon</button>
