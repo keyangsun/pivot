@@ -1,15 +1,16 @@
 import React from 'react';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import './App.css';
-import Nav from './nav';
+import List from './components/list';
 import Header from './header';
-import Table from './table';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header />
-      <Nav />
-      <Table />
+      <Switch>
+        <Route exact path="/list" component={Header}/>
+        <Route path="/" component={List}/>
+      </Switch>
     </div>
   );
 }
