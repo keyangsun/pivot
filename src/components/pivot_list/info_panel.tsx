@@ -26,12 +26,12 @@ const InfoPanel = (props: Props) => {
     });
 
     return(
-        <details>
-            <summary>{title}</summary>
+        <section>
+            <h2>{title}</h2>
             <div>
                 {data}
             </div>
-        </details>
+        </section>
     )
 }
 
