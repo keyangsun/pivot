@@ -33,7 +33,9 @@ class PivotList extends React.Component<Props, State>  {
                             <DateRange date={new Date()}/>
                             <DateRange date={new Date()}/>
                         </div>
-                        <button className="zoom">Left icon</button>
+                        <div className="button-container">
+                            <button className="button">Left icon</button>
+                        </div>
                     </aside>
                     <section className="center-content center-open-left-drawer">
                         <div className="photo-grid-wrapper">
@@ -44,14 +46,16 @@ class PivotList extends React.Component<Props, State>  {
                             <Figure alt="Data Image" src="undefined" caption="Data Image"/>
                             <Figure alt="Data Image" src="undefined" caption="Data Image"/>
                         </div>
-                        <h3>Image Size</h3>
-                        <button className="zoom">- icon</button>
-                        <button className="zoom">+ icon</button>
-                        
+                        <div className="button-container center-open-right-drawer">
+                            <button className="button">- icon</button>
+                            <button className="button">+ icon</button>
+                        </div>
                     </section>
                     <div className="right-drawer">
                         <InfoPanel title="Data" data={[{value: 'value', label: 'label', name: 'name'}, {value: 'value', label: 'label', name: 'name'}]}/>
-                        <button>Right icon</button>
+                        <div className="button-container">
+                            <button className="button">Right icon</button>
+                        </div>
                     </div>
                 </main>
             </div>
