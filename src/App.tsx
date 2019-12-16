@@ -8,6 +8,7 @@ import PivotList from './components/pivot_list/pivot_list';
 const App: React.FC = () => {
   return (
     <div className="App">
+      <Header/>
       <Switch>
         <Route exact path="/list" component={Header}/>
         <Route exact path="/pivot-list" component={PivotList}/>
