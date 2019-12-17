@@ -4,23 +4,35 @@ import Dropdown from '../dropdown';
 import Figure from './figure';
 import InfoPanel from './info_panel';
 import DateRange from './date_range';
+import RightDrawer from './right_drawer';
 
 interface Props {
 
 }
 
 interface State {
-
+    isOpenRightDrawer: Boolean;
 }
 
 class PivotList extends React.Component<Props, State>  {
     constructor(props: Props) {
         super(props);
-        this.state = {};
+        this.state = {
+            isOpenRightDrawer: false,
+        };
+        this.openRightDrawer = this.openRightDrawer.bind(this);
     }
 
+    openRightDrawer(): void {
+        console.log(!this.state.isOpenRightDrawer);
+        this.setState({
+            isOpenRightDrawer: !this.state.isOpenRightDrawer,
+        })
+        return;
+    }
     
     render(): ReactElement {
+        const { isOpenRightDrawer } = this.state;
         const options = [{name: 'Day', value: 'day'}, {name: 'Week', value: 'week'}, {name: 'Month', value: 'month'}, {name: 'Year', value: 'year'}];
         return (
             <div className="pivot-list">
@@ -51,12 +63,7 @@ class PivotList extends React.Component<Props, State>  {
                             <button className="button">+ icon</button>
                         </div>
                     </section>
-                    <div className="right-drawer">
-                        <InfoPanel title="Data" data={[{value: 'value', label: 'label', name: 'name'}, {value: 'value', label: 'label', name: 'name'}]}/>
-                        <div className="button-container">
-                            <button className="button">Right icon</button>
-                        </div>
-                    </div>
+                    <RightDrawer handleOpen={this.openRightDrawer} isOpen={isOpenRightDrawer}/>
                 </main>
             </div>
         )
