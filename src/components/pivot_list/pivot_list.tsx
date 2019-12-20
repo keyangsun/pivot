@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react';
 import './pivot_list.css';
-import Dropdown from '../dropdown';
-import Figure from './figure';
-import InfoPanel from './info_panel';
-import DateRange from './date_range';
+import CenterContent from './center_content';
+import LeftDrawer from './left_drawer';
 import RightDrawer from './right_drawer';
 
 interface Props {
@@ -12,6 +10,7 @@ interface Props {
 
 interface State {
     isOpenRightDrawer: Boolean;
+    isOpenLeftDrawer: Boolean;
 }
 
 class PivotList extends React.Component<Props, State>  {
@@ -19,51 +18,38 @@ class PivotList extends React.Component<Props, State>  {
         super(props);
         this.state = {
             isOpenRightDrawer: false,
+            isOpenLeftDrawer: true,
         };
-        this.openRightDrawer = this.openRightDrawer.bind(this);
+        this.openDrawer = this.openDrawer.bind(this);
     }
 
-    openRightDrawer(): void {
-        console.log(!this.state.isOpenRightDrawer);
-        this.setState({
-            isOpenRightDrawer: !this.state.isOpenRightDrawer,
-        })
+    openDrawer(whichDrawer: string): void {
+        let isOpen: Boolean;
+        
+        if (whichDrawer == 'left') {
+            isOpen = this.state.isOpenLeftDrawer;
+            this.setState({
+                isOpenLeftDrawer: !isOpen
+            })
+        } else if (whichDrawer == 'right') {
+            isOpen = this.state.isOpenRightDrawer;
+            this.setState({
+                isOpenRightDrawer: !isOpen
+            })        
+        } else {
+            console.error("err: side button malfunction ln: 36 pivot_list js");
+        }
         return;
     }
     
     render(): ReactElement {
-        const { isOpenRightDrawer } = this.state;
-        const options = [{name: 'Day', value: 'day'}, {name: 'Week', value: 'week'}, {name: 'Month', value: 'month'}, {name: 'Year', value: 'year'}];
+        const { isOpenLeftDrawer, isOpenRightDrawer } = this.state;
         return (
             <div className="pivot-list">
                 <main>
-                    <aside className="left-drawer open-left-drawer">
-                        <div>
-                            <Dropdown label='Sort By' name="sort-by" options={options}/>
-                        </div>
-                        <div>
-                            <DateRange date={new Date()}/>
-                            <DateRange date={new Date()}/>
-                        </div>
-                        <div className="button-container">
-                            <button className="button">Left icon</button>
-                        </div>
-                    </aside>
-                    <section className={`center-content ${isOpenRightDrawer ? 'open-right' : 'closed-right'} open-left`}>
-                        <div className="photo-grid-wrapper">
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                            <Figure alt="Data Image" src="undefined" caption="Data Image"/>
-                        </div>
-                        <div className="button-container center-open-right-drawer">
-                            <button className="button">- icon</button>
-                            <button className="button">+ icon</button>
-                        </div>
-                    </section>
-                    <RightDrawer handleOpen={this.openRightDrawer} isOpen={isOpenRightDrawer}/>
+                    <LeftDrawer handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
+                    <CenterContent isOpenRight={isOpenRightDrawer}/>
+                    <RightDrawer handleOpen={() => this.openDrawer('right')} isOpen={isOpenRightDrawer}/>
                 </main>
             </div>
         )

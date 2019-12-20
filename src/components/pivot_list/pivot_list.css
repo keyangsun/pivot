@@ -11,14 +11,6 @@ main {
     width: 100%;
 }
 
-.left-drawer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: calc(100% - 70px);
-    border-right: 1px solid grey;
-}
-
 .open-left-drawer {
     width: 14em;
 }
@@ -78,6 +70,14 @@ main {
     max-width: 3em;
 }
 
+.left-drawer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 70px);
+    border-right: 1px solid grey;
+}
+
 .left-drawer .button-container{
     display: flex;
     padding-right: 10px;
@@ -86,6 +86,14 @@ main {
     position: fixed;
     left: 0;
     bottom: 10px;
+}
+
+.left-drawer.open {
+    min-width: 13em;
+}
+
+.left-drawer.closed {
+    max-width: 3em;
 }
 
 .center-content .button-container {

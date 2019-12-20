@@ -7,6 +7,7 @@ interface Props {
     isOpen: Boolean;
 }
 
+
 const RightDrawer: React.FC<Props> = (props: Props) => {
     const { handleOpen, isOpen } = props;
     const options = [{ name: 'Day', value: 'day' }, { name: 'Week', value: 'week' }, { name: 'Month', value: 'month' }, { name: 'Year', value: 'year' }];
