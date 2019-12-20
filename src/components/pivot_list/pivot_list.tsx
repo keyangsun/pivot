@@ -49,7 +49,7 @@ class PivotList extends React.Component<Props, State>  {
                             <button className="button">Left icon</button>
                         </div>
                     </aside>
-                    <section className="center-content center-open-left-drawer">
+                    <section className={`center-content ${isOpenRightDrawer ? 'open-right' : 'closed-right'} open-left`}>
                         <div className="photo-grid-wrapper">
                             <Figure alt="Data Image" src="undefined" caption="Data Image"/>
                             <Figure alt="Data Image" src="undefined" caption="Data Image"/>

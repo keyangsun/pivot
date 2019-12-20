@@ -29,8 +29,17 @@ main {
 
 .center-content {
     height: calc(100% - 70px);
-    width: calc(100% - 14em - 20em);
     padding: 15px;
+}
+
+.center-content.open-right {
+    width: calc(100% - 14em - 20em);
+    margin-right: 20em;
+}
+
+.center-content.closed-right {
+    width: calc(100% - 14em - 3em);
+    margin-right: 3em;
 }
 
 .photo-grid-wrapper {
@@ -67,10 +76,6 @@ main {
 
 .right-drawer.closed {
     max-width: 3em;
-}
-
-.center-open-right-drawer {
-    margin-right: 20em;
 }
 
 .left-drawer .button-container{
