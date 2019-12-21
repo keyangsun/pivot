@@ -23,7 +23,9 @@ const LeftDrawer: React.FC<Props> = (props: Props) => {
                 <DateRange date={new Date()} />
             </div>
             <div className="button-container">
-                <button onClick={handleOpen} className="button">Left icon</button>
+                <button onClick={handleOpen} className="button">
+                    <i className="material-icons">chevron_left</i>
+                </button>
             </div>
         </aside>
     )
