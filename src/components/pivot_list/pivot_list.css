@@ -11,31 +11,35 @@ main {
     width: 100%;
 }
 
-.open-left-drawer {
-    width: 14em;
-}
-
-.center-open-left-drawer {
-    /* margin-left: 14em; */
-}
-
 .center-content {
+    box-sizing: border-box;
     height: calc(100% - 70px);
     padding: 15px;
+    width: 100vw;
+    transition: margin .2s ease-in, padding .2s ease-in;
+}
+
+.center-content.open-left {
+    padding-left: 190px;
+}
+
+.center-content.closed-left {
+    padding-left: 60px
 }
 
 .center-content.open-right {
-    width: calc(100% - 14em - 20em);
-    margin-right: 20em;
+    padding-right: 350px;
 }
 
 .center-content.closed-right {
-    width: calc(100% - 14em - 3em);
-    margin-right: 3em;
+    padding-right: 60px;
 }
 
 .photo-grid-wrapper {
     display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    height: auto;
     width: 100%;
     overflow: auto;
 }
@@ -58,63 +62,39 @@ main {
     background-color: #ececec;
     right: 0;
     width: auto;
-    transition: max-width 1s ramp-up;
+    transition: width .2s ease-in;
 }
 
 .right-drawer.open {
-    max-width: 20em;
-    min-width: 20em;
+    width: 350px;
 }
 
 .right-drawer.closed {
-    max-width: 3em;
+    width: 60px;
 }
 
-.left-drawer {
-    position: relative;
+.left-drawer-container {
+    position: fixed;
     display: flex;
     flex-direction: column;
     height: calc(100% - 70px);
     border-right: 1px solid grey;
+    width: 200px;
+    transition: width .2s ease-in;
 }
 
-.left-drawer .button-container{
-    display: flex;
-    padding-right: 10px;
-    width: 14em;
-    justify-content: flex-end;
-    position: fixed;
-    left: 0;
-    bottom: 10px;
+.left-drawer {
+    width: 100%;
 }
 
-.left-drawer.open {
-    min-width: 13em;
+.left-drawer-container.open {
+    width: 190px;
 }
 
-.left-drawer.closed {
-    max-width: 3em;
+.left-drawer-container.closed {
+    width: 60px;
 }
 
-.center-content .button-container {
-    display: flex;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-}
 
-.right-drawer .button-container {
-    margin-bottom: 10px;
-}
 
-.button {
-    user-select: none;
-    border-radius: 50%;
-    margin: 5px;
-    border: none;
-    background-color: grey;   
-    height: 2.2em;
-    width: 2.2em;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
-}
 

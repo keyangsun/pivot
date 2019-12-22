@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import './pivot_list.css';
+import '../../stylesheets/button.css';
 import CenterContent from './center_content';
 import LeftDrawer from './left_drawer';
 import RightDrawer from './right_drawer';
@@ -48,7 +49,7 @@ class PivotList extends React.Component<Props, State>  {
             <div className="pivot-list">
                 <main>
                     <LeftDrawer handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
-                    <CenterContent isOpenRight={isOpenRightDrawer}/>
+                    <CenterContent isOpenRight={isOpenRightDrawer} isOpenLeft={isOpenLeftDrawer}/>
                     <RightDrawer handleOpen={() => this.openDrawer('right')} isOpen={isOpenRightDrawer}/>
                 </main>
             </div>

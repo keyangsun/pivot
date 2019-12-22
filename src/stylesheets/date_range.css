@@ -1,0 +1,12 @@
+.date-range-container {
+    width: 100%;
+}
+
+.y-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10em;
+    width: 100%;
+    border: 1px solid grey;
+}

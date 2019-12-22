@@ -14,18 +14,20 @@ const LeftDrawer: React.FC<Props> = (props: Props) => {
     const options = [{ name: 'Day', value: 'day' }, { name: 'Week', value: 'week' }, { name: 'Month', value: 'month' }, { name: 'Year', value: 'year' }];
 
     return (
-        <aside className={`left-drawer ${isOpen ? 'open' : 'closed'}`}>
-            <div>
-                <Dropdown label='Sort By' name="sort-by" options={options} />
-            </div>
-            <div>
-                <DateRange date={new Date()} />
-                <DateRange date={new Date()} />
-            </div>
-            <div className="button-container">
-                <button onClick={handleOpen} className="button">
-                    <i className="material-icons">chevron_left</i>
-                </button>
+        <aside className={`left-drawer-container ${isOpen ? 'open' : 'closed'}`}>
+            <div className="left-drawer">
+                <div>
+                    <Dropdown label='Sort By' name="sort-by" options={options} />
+                </div>
+                <div className="date-range-container">
+                    <DateRange date={new Date()} />
+                    <DateRange date={new Date()} />
+                </div>
+                <div className={`button-container ${isOpen ? 'open' : 'closed'}`}>
+                    <button onClick={handleOpen} className="button">
+                        <i className="material-icons">{ isOpen ? 'chevron_left' : 'chevron_right'}</i>
+                    </button>
+                </div>
             </div>
         </aside>
     )

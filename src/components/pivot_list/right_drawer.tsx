@@ -15,8 +15,10 @@ const RightDrawer: React.FC<Props> = (props: Props) => {
     return (
         <div className={`right-drawer ${isOpen ? "open" : "closed"}`}>
             <InfoPanel title="Data" data={[{ value: 'value', label: 'label', name: 'name' }, { value: 'value', label: 'label', name: 'name' }]} />
-            <div className="button-container">
-                <button onClick={handleOpen} className="button">Right icon</button>
+            <div className={`button-container ${isOpen ? 'open-right' : 'closed-right'}`}>
+                <button onClick={handleOpen} className="button">
+                    <i className="material-icons">{isOpen ? 'chevron_right' : 'chevron_left'}</i>
+                </button>
             </div>
         </div>
     )

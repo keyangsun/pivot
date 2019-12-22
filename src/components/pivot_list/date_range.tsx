@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/date_range.css';
 
 interface Props {
     date: Date;
@@ -11,7 +12,7 @@ const DateRange = (props: Props) => {
 
     
     return(
-        <span>
+        <span className="y-container">
             <h4>{date + ""}</h4>
         </span>
     )
