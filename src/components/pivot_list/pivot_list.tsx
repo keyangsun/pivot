@@ -12,6 +12,7 @@ interface Props {
 interface State {
     isOpenRightDrawer: Boolean;
     isOpenLeftDrawer: Boolean;
+    sortBy: string;
 }
 
 class PivotList extends React.Component<Props, State>  {
@@ -20,8 +21,16 @@ class PivotList extends React.Component<Props, State>  {
         this.state = {
             isOpenRightDrawer: false,
             isOpenLeftDrawer: true,
+            sortBy: "",
         };
         this.openDrawer = this.openDrawer.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
+    }
+
+    handleSelect(e: React.ChangeEvent<HTMLSelectElement>, location: string) {
+            this.setState({
+                sortBy: e.target.value
+            })
     }
 
     openDrawer(whichDrawer: string): void {
@@ -48,7 +57,7 @@ class PivotList extends React.Component<Props, State>  {
         return (
             <div className="pivot-list">
                 <main>
-                    <LeftDrawer handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
+                    <LeftDrawer handleSelect={(e) => this.handleSelect(e, 'left-drawer')} handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
                     <CenterContent isOpenRight={isOpenRightDrawer} isOpenLeft={isOpenLeftDrawer}/>
                     <RightDrawer handleOpen={() => this.openDrawer('right')} isOpen={isOpenRightDrawer}/>
                 </main>

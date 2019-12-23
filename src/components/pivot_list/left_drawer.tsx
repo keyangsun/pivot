@@ -2,22 +2,24 @@ import React from 'react';
 import Dropdown from '../dropdown';
 import DateRange from './date_range';
 import './pivot_list.css';
+import '../../stylesheets/select.css';
 
 interface Props {
     handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    handleSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     isOpen: Boolean;
 }
 
 
 const LeftDrawer: React.FC<Props> = (props: Props) => {
-    const { handleOpen, isOpen } = props;
+    const { handleOpen, handleSelect,isOpen } = props;
     const options = [{ name: 'Day', value: 'day' }, { name: 'Week', value: 'week' }, { name: 'Month', value: 'month' }, { name: 'Year', value: 'year' }];
 
     return (
         <aside className={`left-drawer-container ${isOpen ? 'open' : 'closed'}`}>
             <div className="left-drawer">
                 <div>
-                    <Dropdown label='Sort By' name="sort-by" options={options} />
+                    <Dropdown handleChange={handleSelect} label='Sort By' name="sort-by" options={options} />
                 </div>
                 <div className="date-range-container">
                     <DateRange date={new Date()} />
