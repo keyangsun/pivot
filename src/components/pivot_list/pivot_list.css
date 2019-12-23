@@ -9,10 +9,12 @@ main {
     display: flex;
     height: 100%;
     width: 100%;
+    background-color: #F4F4F4;
 }
 
 .center-content {
     box-sizing: border-box;
+    background-color: inherit;
     height: calc(100% - 70px);
     padding: 15px;
     width: 100vw;
@@ -59,7 +61,8 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: calc(100% - 70px);
-    background-color: #ececec;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
     right: 0;
     width: auto;
     transition: width .2s ease-in;
@@ -75,10 +78,11 @@ main {
 
 .left-drawer-container {
     position: fixed;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     height: calc(100% - 70px);
-    border-right: 1px solid grey;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
     width: 200px;
     transition: width .2s ease-in;
 }

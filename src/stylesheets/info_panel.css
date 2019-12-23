@@ -1,0 +1,34 @@
+h2 {
+    text-align: center;
+}
+
+.data-items-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.data-item input {
+    margin: 0 0 12px 0;
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.data-item-divider {
+    text-align: center;
+}
+
+.data-item label {
+    text-align: start;
+    vertical-align: middle;
+    width: 100px;
+    text-overflow: wrap;
+}

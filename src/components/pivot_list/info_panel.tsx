@@ -1,8 +1,10 @@
 import React from 'react';
+import '../../stylesheets/info_panel.css';
 
 interface Props {
    title: string;
    data: Data[];
+   isOpen: Boolean;
 }
 
 interface Data {
@@ -11,15 +13,14 @@ interface Data {
     name: string;
 }
 
-
-
 const InfoPanel = (props: Props) => {    
-    const { title } = props;
+    const { title, isOpen } = props;
     const data = props.data.map(dataItem => {
         const { label, value, name } = dataItem;
         return (
-            <span>
+            <span className="data-item">
                 <label htmlFor={name}>{label}</label>
+                <p className="data-item-divider">:</p>
                 <input id={name} name={name} type="text" value={value}/>
             </span>
         )
@@ -28,9 +29,9 @@ const InfoPanel = (props: Props) => {
     return(
         <section>
             <h2>{title}</h2>
-            <div>
+            {isOpen ? <div className="data-items-container">
                 {data}
-            </div>
+            </div> : ''}
         </section>
     )
 }
