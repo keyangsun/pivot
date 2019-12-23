@@ -13,6 +13,8 @@ interface State {
     isOpenRightDrawer: Boolean;
     isOpenLeftDrawer: Boolean;
     sortBy: string;
+    groupBy: string;
+    filterBy: string;
 }
 
 class PivotList extends React.Component<Props, State>  {
@@ -21,16 +23,29 @@ class PivotList extends React.Component<Props, State>  {
         this.state = {
             isOpenRightDrawer: false,
             isOpenLeftDrawer: true,
-            sortBy: "",
+            sortBy: "Sort by",
+            groupBy: "Group by",
+            filterBy: "Filter by"
         };
         this.openDrawer = this.openDrawer.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
     }
 
-    handleSelect(e: React.ChangeEvent<HTMLSelectElement>, location: string) {
-            this.setState({
-                sortBy: e.target.value
-            })
+    handleSelect(e: React.ChangeEvent<HTMLSelectElement>, 
+        whichDropdown: string): void {
+        switch (whichDropdown) {
+            case 'sort-by':
+                this.setState({
+                    sortBy: e.target.value
+                })   
+                break;
+            case 'group-by':
+                break;
+            case 'filter-by':
+                break;
+            default:
+                break;
+        }
     }
 
     openDrawer(whichDrawer: string): void {
@@ -53,11 +68,11 @@ class PivotList extends React.Component<Props, State>  {
     }
     
     render(): ReactElement {
-        const { isOpenLeftDrawer, isOpenRightDrawer } = this.state;
+        const { isOpenLeftDrawer, isOpenRightDrawer, sortBy } = this.state;
         return (
             <div className="pivot-list">
                 <main>
-                    <LeftDrawer handleSelect={(e) => this.handleSelect(e, 'left-drawer')} handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
+                    <LeftDrawer handleSelect={(e) => this.handleSelect(e, 'sort-by')} selected={sortBy} handleOpen={() => this.openDrawer('left')} isOpen={isOpenLeftDrawer}/>
                     <CenterContent isOpenRight={isOpenRightDrawer} isOpenLeft={isOpenLeftDrawer}/>
                     <RightDrawer handleOpen={() => this.openDrawer('right')} isOpen={isOpenRightDrawer}/>
                 </main>

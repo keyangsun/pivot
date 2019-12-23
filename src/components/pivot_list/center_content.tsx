@@ -22,6 +22,22 @@ const CenterContent: React.FC<Props> = (props: Props) => {
                 <Figure alt="Data Image" src="undefined" caption="Data Image" />
                 <Figure alt="Data Image" src="undefined" caption="Data Image" />
             </div>
+            <div className="photo-grid-wrapper">
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+            </div>
+            <div className="photo-grid-wrapper">
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+                <Figure alt="Data Image" src="undefined" caption="Data Image" />
+            </div>
             <div className={`button-container`}>
                 <button className="button">
                     <div className="text-icon">-</div>

@@ -4,6 +4,7 @@ interface Props {
     label: string;
     name: string;
     options: Option[];
+    value: string;
     handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -13,13 +14,13 @@ interface Option {
 }
 
 const Dropdown = (props: Props) => {
-    const { label, name, handleChange } = props;
+    const { label, name, handleChange, value } = props;
     const options  = props.options.map(option => <option value={option.value}>{option.name}</option>);
     
     return(
        
         <span className="select-container">
-            <select onChange={handleChange} name={name} id={name}>
+            <select onChange={handleChange} value={value} name={name} id={name}>
                 <option value="Sort By">Sort By</option>
                 {options}
             </select>
